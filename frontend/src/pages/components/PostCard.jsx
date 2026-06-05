@@ -7,7 +7,7 @@ const PostCard = ({ post }) => {
   const handleLike = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/posts/like/${post._id}`,
+        `http://https://social-media-backend-cgna.onrender.com/api/posts/like/${post._id}`,
         {
           userId: "6a21a13d635e6142ae29f1d3",
         }
@@ -22,7 +22,7 @@ const PostCard = ({ post }) => {
   const handleComment = async () => {
     try {
       await axios.post(
-        `http://localhost:5000/api/posts/comment/${post._id}`,
+        `http://https://social-media-backend-cgna.onrender.com/api/posts/comment/${post._id}`,
         {
           userId: "6a21a13d635e6142ae29f1d3",
           text: comment,

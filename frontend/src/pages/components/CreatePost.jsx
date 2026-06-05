@@ -12,7 +12,7 @@ const CreatePost = () => {
     try {
       console.log("User:", user);
 
-      await axios.post("http://localhost:5000/api/posts/create", {
+      await axios.post("http://https://social-media-backend-cgna.onrender.com/api/posts/create", {
         content,
         userId: user.id,
       });
