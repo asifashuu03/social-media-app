@@ -8,31 +8,34 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-try {
- await axios.post(
-  "https://social-media-backend-cgna.onrender.com/api/auth/login",
-  {
-    email,
-    password,
-  }
-);
+    try {
+      const response = await axios.post(
+        "https://social-media-backend-cgna.onrender.com/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
 
-  localStorage.setItem(
-    "user",
-    JSON.stringify(response.data.user)
-  );
+      localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.user)
+      );
 
-  alert("Login Successful!");
+      alert("Login Successful!");
 
-  window.location.reload();
+      window.location.reload();
+    } catch (error) {
+      console.log("FULL ERROR:", error);
+      console.log("RESPONSE:", error.response);
+      console.log("DATA:", error.response?.data);
 
-} catch (error) {
-  console.log("FULL ERROR:", error);
-  console.log("RESPONSE:", error.response);
-  console.log("DATA:", error.response?.data);
-
-  alert(JSON.stringify(error.response?.data));
-}
+      alert(
+        error.response?.data?.message ||
+          error.message ||
+          "Login Failed"
+      );
+    }
   };
 
   return (
@@ -45,6 +48,7 @@ try {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
         <br />
@@ -55,6 +59,7 @@ try {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
 
         <br />

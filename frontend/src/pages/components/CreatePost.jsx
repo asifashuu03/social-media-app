@@ -10,16 +10,17 @@ const CreatePost = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     try {
-      console.log("User:", user);
+      await axios.post(
+        "https://social-media-backend-cgna.onrender.com/api/posts/create",
+        {
+          content,
+          userId: user._id || user.id,
+        }
+      );
 
-      await axios.post("http://https://social-media-backend-cgna.onrender.com/api/posts/create", {
-        content,
-        userId: user.id,
-      });
-
-alert("Post created successfully!");
-window.location.reload();      
+      alert("Post created successfully!");
       setContent("");
+      window.location.reload();
     } catch (error) {
       console.log(error);
       alert("Error creating post");
