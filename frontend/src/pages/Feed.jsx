@@ -11,9 +11,11 @@ const Feed = () => {
 
   const fetchPosts = async () => {
     try {
-    const response = await axios.get("https://social-media-backend-cgna.onrender.com/api/posts");
+      const response = await axios.get(
+        "https://social-media-backend-cgna.onrender.com/api/posts"
+      );
 
-    setPosts(response.data);
+      setPosts(response.data);
     } catch (error) {
       console.log("Error fetching posts:", error);
     }
