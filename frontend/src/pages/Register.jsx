@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-function Register() {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +11,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        "https://social-media-backend-cgna.onrender.com/api/auth/register"
+        "https://social-media-backend-cgna.onrender.com/api/auth/register",
         {
           username,
           email,
@@ -20,13 +20,22 @@ function Register() {
       );
 
       alert(response.data.message);
+
+      setUsername("");
+      setEmail("");
+      setPassword("");
     } catch (error) {
-      alert(error.response?.data?.message || "Registration Failed");
+      console.log(error.response?.data);
+
+      alert(
+        error.response?.data?.message ||
+          "Registration Failed"
+      );
     }
   };
 
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
       <h2>Register</h2>
 
       <form onSubmit={handleRegister}>
@@ -66,6 +75,6 @@ function Register() {
       </form>
     </div>
   );
-}
+};
 
 export default Register;

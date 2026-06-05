@@ -9,13 +9,13 @@ const Login = () => {
     e.preventDefault();
 
 try {
-  const response = await axios.post(
-    "http://https://social-media-backend-cgna.onrender.com/api/auth/login",
-    {
-      email,
-      password,
-    }
-  );
+ await axios.post(
+  "https://social-media-backend-cgna.onrender.com/api/auth/login",
+  {
+    email,
+    password,
+  }
+);
 
   localStorage.setItem(
     "user",
