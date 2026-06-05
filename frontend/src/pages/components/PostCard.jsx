@@ -22,7 +22,7 @@ const PostCard = ({ post }) => {
   const handleComment = async () => {
     try {
       await axios.post(
-        `http://https://social-media-backend-cgna.onrender.com/api/posts/comment/${post._id}`,
+        `http://social-media-backend-cgna.onrender.com/api/posts/comment/${post._id}`,
         {
           userId: "6a21a13d635e6142ae29f1d3",
           text: comment,
