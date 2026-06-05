@@ -7,9 +7,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const loggedUser = JSON.parse(
-      localStorage.getItem("user")
-    );
+    const loggedUser = JSON.parse(localStorage.getItem("user"));
     setUser(loggedUser);
   }, []);
 

@@ -27,8 +27,11 @@ try {
   window.location.reload();
 
 } catch (error) {
-  console.log(error.response?.data);
-  alert(error.response?.data?.message);
+  console.log("FULL ERROR:", error);
+  console.log("RESPONSE:", error.response);
+  console.log("DATA:", error.response?.data);
+
+  alert(JSON.stringify(error.response?.data));
 }
   };
 
